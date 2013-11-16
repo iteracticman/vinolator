@@ -1,0 +1,17 @@
+<div class="input-group input-group-lg">
+  <input ng-model="model.text" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" vi-unitinput>
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      <span ng-bind="model.unit.id"></span> 
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right">
+      <li ng-repeat="unit in units" class="{{ model.activeIfCurrent(unit) }}">
+        <a ng-click="model.unit = unit">
+          {{unit.id}}<br>
+          <small>{{unit.name}}</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

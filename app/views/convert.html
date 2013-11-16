@@ -1,0 +1,60 @@
+<div>
+  <form role="form">
+    <vi-unitvalue model="model.from" units="model.units"></vi-unitvalue>
+    <br>
+    <vi-unitvalue model="model.to" units="model.units"></vi-unitvalue>
+  </form>
+  <div>{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</div>
+
+  <!--<table id="pad">
+    <tbody>
+      <tr>
+        <td>
+          <input type="button" value="1" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="2" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="3" ng-click="enter($event)"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="4" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="5" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="6" ng-click="enter($event)"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="7" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="8" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="9" ng-click="enter($event)"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value=","/>
+        </td>
+        <td>
+          <input type="button" value="0" ng-click="enter($event)"/>
+        </td>
+        <td>
+          <input type="button" value="x" ng-click="backspace()"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>-->
+  
+<!--  <input type="button" ng-click="switchValues()" value="Swap"></div>-->
+  <div id="out"></div>
+</div>
