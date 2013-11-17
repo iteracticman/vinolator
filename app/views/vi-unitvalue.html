@@ -1,8 +1,8 @@
 <div class="input-group input-group-lg">
-  <input ng-model="model.text" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" vi-unitinput>
+  <input ng-model="model.text" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" placeholder="{{ model.unit.name }}" vi-unitinput>
   <div class="input-group-btn">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      <span ng-bind="model.unit.id"></span> 
+      <span ng-bind="model.unit.id"></span>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu pull-right">
