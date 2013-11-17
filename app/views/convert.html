@@ -1,8 +1,8 @@
 <div>
   <form role="form">
-    <vi-unitvalue model="model.from" units="model.units"></vi-unitvalue>
-    <br>
-    <vi-unitvalue model="model.to" units="model.units"></vi-unitvalue>
+    <div vi-unitvalue model="model.from" units="model.units"></div>
+    <br class="visible-xs">
+    <div vi-unitvalue model="model.to" units="model.units"></div>
   </form>
   <br>
   <p class="text-center text-muted">{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</p>
