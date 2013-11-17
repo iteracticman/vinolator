@@ -97,6 +97,12 @@ app.factory('UnitModel', function($log) {
       }
       return '';
     },
+    mutedIfNotCurrent : function(unit) {
+      if(unit != this.unit) {
+        return 'text-muted';  
+      }
+      return '';
+    },
     get step() {
       return 1 / Math.pow(10, this.unit.precision);
     }

@@ -9,7 +9,7 @@
       <li ng-repeat="unit in units" class="{{ model.activeIfCurrent(unit) }}">
         <a ng-click="model.unit = unit">
           {{unit.id}}<br>
-          <small>{{unit.name}}</small>
+          <small class="{{ model.mutedIfNotCurrent(unit) }} ">{{unit.name}}</small>
         </a>
       </li>
     </ul>
