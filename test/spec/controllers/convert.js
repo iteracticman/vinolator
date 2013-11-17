@@ -110,14 +110,14 @@ describe('controllers', function(){
     $scope.$digest();
     
     expect(model.to.value).toBe(9.039999999999992);
-    expect(model.to.text).toBe('9.04');
+    expect(model.to.text).toBe('9');
     
     model.to.value = 9.342;
     model.ignoreNextUpdate = false;
     $scope.$digest();
     
     expect(model.from.value).toBe(11.252500000000017);
-    expect(model.from.text).toBe('11.25');
+    expect(model.from.text).toBe('11.3');
     
     model.from.unit = model.unitSet.d;
     model.to.value = 14.1;
