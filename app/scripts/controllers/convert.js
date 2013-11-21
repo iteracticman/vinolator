@@ -7,19 +7,38 @@ app.directive('viUnitvalue', function() {
     restrict: 'AE',
     scope: {
       model : '=',
-      units : '='
+      units : '=',
+      autofocus : '='
     },
     templateUrl: 'views/vi-unitvalue.html'
   }
 });
 
-app.directive('viUnitinput', function() {
+app.directive('viUnitinput', function($log) {
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
-      ctrl.$formatters = [];
-      ctrl.$parsers = [function(viewValue) {
-        return viewValue;
+      elm.tooltip()
+      ctrl.$parsers.push(function(viewValue) {
+        //viewValue doesnt give right test when type='number' and input is no number
+        viewValue = elm.val();
+        var val = parseFloat(viewValue);
+    
+        elm.parent().removeClass('has-error');
+        
+        if(scope.model.valueIsValid(val)){
+          return val;
+        } else if(viewValue.length > 0) {
+          elm.parent().addClass('has-error');
+        }
+        return undefined;
+      });
+      
+      ctrl.$formatters = [ function(modelValue) {
+        if(angular.isNumber(modelValue)) {
+          elm.parent().removeClass('has-error');
+          return parseFloat(modelValue.toFixed(scope.model.unit.precision)).toString(); 
+        }
       }];
     }
   };
@@ -29,36 +48,6 @@ app.factory('UnitModel', function($log) {
   var model = {
     valueIsValid : function(value) {
       return this.unit.valueIsValid(value);  
-    }, 
-    
-    set text(newText) {
-      $log.log(this.unit.id +': setting text: '+newText);
-      
-      var val = parseFloat(newText);
-    
-      if(this.valueIsValid(val)) {
-        this.value = val;  
-      }
-      
-      this._text = newText;
-    },
-    get text() {
-      return this._text;
-    },
-    
-    set value(newValue) {
-      $log.log(this.unit.id + ': setting value: '+newValue);
-
-      this._value = newValue;
-      
-      if(angular.isUndefined(newValue)) {
-        this._text = '?';
-      } else {
-        this._text = parseFloat(newValue.toFixed(this.unit.precision)).toString();
-      }
-    },
-    get value() {
-      return this._value;
     },
     
     appendCharacter : function(event) {

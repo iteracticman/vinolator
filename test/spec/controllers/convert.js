@@ -95,6 +95,7 @@ describe('controllers', function(){
     expect(model.to.value).toBe(oldTo);
   });
   
+  /* TODO: test directive
   it('texts should have reasonable number of fractions', function() {
     model.from.unit = model.unitSet.brix;
     model.to.unit = model.unitSet.oechsle;
@@ -133,5 +134,6 @@ describe('controllers', function(){
     
     expect(model.to.value).toBe(1.05334);
     expect(model.to.text).toBe('1.0533');
-  });
+    //TODO: test ',' 
+  }); */
 });
