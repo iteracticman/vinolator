@@ -343,6 +343,9 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
+  
+  grunt.registerTask('heroku:development', 'build');
+  grunt.registerTask('heroku:production', 'build');
 
   grunt.registerTask('default', [
     'jshint',

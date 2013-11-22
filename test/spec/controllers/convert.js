@@ -2,15 +2,30 @@
 
 describe('convert', function() {
   beforeEach(module('vinolatorWebApp'));
+  
+  var $scope;
+  var model;
+  
+  beforeEach(inject(function($rootScope, $controller, $httpBackend) {
+    $scope = $rootScope.$new();
+    $controller('ConvertCtrl', { $scope : $scope });
+    model = $scope.model;
+
+    $scope.$digest();
+  }));
     
   describe('directives', function() {
-    beforeEach(inject(function($rootScope, $controller, $httpBackend) {
-      $scope = $rootScope.$new();
-      $controller('ConvertCtrl', { $scope : $scope });
-      model = $scope.model;
-  
+    var elem;
+    beforeEach(inject(function($compile) {
+      elem = angular.element('<input ng-model="model.to.value" vi-unitinput>');
+      $compile(elem)($scope);
       $scope.$digest();
     }));
+    
+    it('should be here', function() {
+      
+    });
+    
     /* TODO: test directive
     it('texts should have reasonable number of fractions', function() {
       model.from.unit = model.unitSet.brix;
@@ -55,25 +70,16 @@ describe('convert', function() {
   });
 
   describe('controller', function(){
-    var $scope;
-    var model;
     
-    beforeEach(inject(function($rootScope, $controller, $httpBackend) {
-      $scope = $rootScope.$new();
-      $controller('ConvertCtrl', { $scope : $scope });
-      model = $scope.model;
-  
-      $scope.$digest();
+    
+    it('units should be prepopulated', inject(function() {
+      expect(model.from.unit).toBe(model.units[0]);
+      expect(model.from.value).toBeUndefined();
+      
+      expect(model.to.unit).toBe(model.units[1]);
+      
+      expect(model.to.value).toBeUndefined();
     }));
-    
-    /*it('should be prepopulated', inject(function(units) {
-      expect($scope.fromUnit).toBe(units.allUnits[0]);
-      expect($scope.fromValue).toBe(1);
-      
-      expect($scope.toUnit).toBe(units.allUnits[1]);
-      
-      expect($scope.toValue).toBe(units.convert(1, $scope.fromUnit, $scope.toUnit));
-    }));*/
     
     it('changing fromValue should change toValue', function() {
       var oldTo = model.to.value;
