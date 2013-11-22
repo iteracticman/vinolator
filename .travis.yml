@@ -8,5 +8,6 @@ before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 deploy:
+  provider: heroku
   api_key:
     secure: OWtMEaRVt9LHQMgKIl2LNm8YTgpAr4wMMgWP4Tvh2jlN2qcwICGQtGSvHkS51hOuezfMJ/puJWt5kt6tSqDAGW6lqm3bETtnD3FblFOaJJ2CZzMHKHFp4mcPUQpPbMO12gRnN4/Gu2eHkaYMvNO3VCIwwFoBwz0vGe7mkzKpgB8=
