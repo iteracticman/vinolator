@@ -1,8 +1,9 @@
 <div>
   <form role="form">
-    <div vi-unitvalue model="model.from" units="model.units" class="col-sm-6"></div>
+    <div vi-unitvalue="" model="model.from" units="model.units" class="col-sm-6"></div>
     <br class="visible-xs">
-    <div vi-unitvalue model="model.to" units="model.units" class="col-sm-6"></div>
+    <div vi-unitvalue="" model="model.to" units="model.units" class="col-sm-6"></div>
+    <a href="#" data-toggle="tooltip" title="first tooltip">Hover over me</a>
   </form>
   <br>
   <p class="text-center text-muted">{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</p>
