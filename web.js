@@ -2,10 +2,10 @@ var express = require("express");
 var app = express();
 app.use(express.logger());
 
-app.use(express.static('app'));
+app.use(express.static('dist'));
 app.get('/', function(request, response) {
   //response.send('Hello World!');
-  response.sendfile('app/index.html');
+  response.sendfile('dist/index.html');
 });
 
 var port = process.env.PORT || 5000;
