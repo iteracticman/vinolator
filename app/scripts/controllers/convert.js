@@ -7,8 +7,7 @@ app.directive('viUnitvalue', function() {
     restrict: 'AE',
     scope: {
       model : '=',
-      units : '=',
-      autofocus : '='
+      units : '='
     },
     templateUrl: 'views/vi-unitvalue.html'
   }
@@ -18,7 +17,6 @@ app.directive('viUnitinput', function($log) {
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
-      elm.tooltip()
       ctrl.$parsers.push(function(viewValue) {
         //viewValue doesnt give right test when type='number' and input is no number
         viewValue = elm.val();
