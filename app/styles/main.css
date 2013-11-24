@@ -1,12 +1,32 @@
-.test {
- color: black; 
+#iphone-screenshot-video {
+  position: relative;
+	background-image: url('/images/vinolator_screenshot.png');
+	height: 501px;
+	width: 258px;
+	text-align: center;
+	display: inline-block;
 }
-/*@media (min-width: 768px) {
-  div[vi-unitvalue] {
-    width: 49.8%;
-    display: inline-block;
+#iphone-screenshot-video video{
+  position: relative;
+  top: 96px;
+}
+
+@media(min-width: 768px) {
+  .xs-center-sm-right {
+    text-align: right;
   }
-}*/
+  .xs-center-sm-left {
+    text-align: left;
+  }
+  #appstore-link {
+    top: 130px;
+  }
+}
+@media (max-width: 767px) {
+  .xs-center-sm-left {
+    text-align: center;
+  }
+}
 
 /*body {
   background-color: white;

@@ -1,15 +1,22 @@
 'use strict';
 
-angular.module('vinolatorWebApp', [
+var mod = angular.module('vinolatorWebApp', [
   'ngResource'
-])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/convert.html',
-        controller: 'ConvertCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+]);
+
+mod.config(function ($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'views/convert.html',
+      controller: 'ConvertCtrl'
+    })
+    .when('/info', {
+      templateUrl: 'views/info.html'
+    })
+    .when('/apps', {
+      templateUrl: 'views/apps.html'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});

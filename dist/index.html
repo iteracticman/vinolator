@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <link rel="stylesheet" href="styles/27dcd7b2.main.css">
+  <link rel="stylesheet" href="styles/929eb3a1.main.css">
 </head>
 <body ng-app="vinolatorWebApp">
   <!--[if lt IE 7]>
@@ -23,32 +23,31 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
 
-  <div class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Vinolator</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Einheitenrechner</a></li>
-          <li><a href="#">iPhone App</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Impressum</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Vinolator</a>
     </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#convert">Einheitenrechner</a></li>
+        <li><a href="#apps">iPhone App</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#info">Impressum</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </nav>
     
-  <div class="container">
-    <h1 class="hidden-xs">Vinolator</h1>
-    <p class="lead">Der Einheitenrechner für Winzer und Kellermeister.</p>
-
+  <div class="container" data-spy="scroll" data-target="#navbar-example">
     <div ng-view=""></div>
+    <div id="apps" ng-include="'views/apps.html'"></div>
+    <div id="info" ng-include="'views/info.html'"></div>
   </div>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -65,6 +64,6 @@
 
   <script src="scripts/89a79a24.modules.js"></script>
 
-  <script src="scripts/e6f827e8.scripts.js"></script>
+  <script src="scripts/523263bc.scripts.js"></script>
 </body>
 </html>
