@@ -1,7 +1,7 @@
 <div class="input-group input-group-lg">
   <input ng-model="model.value" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" placeholder="{{ model.unit.name }}" vi-unitinput data-toggle="tooltip" title="{{ unit.name }}">
   <div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 90px;">
       <span ng-bind="model.unit.id"></span>
       <span class="caret"></span>
     </button>

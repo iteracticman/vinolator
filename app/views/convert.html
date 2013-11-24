@@ -1,12 +1,64 @@
 <div>
-  <form role="form">
-    <div vi-unitvalue model="model.from" units="model.units" class="col-sm-6"></div>
-    <br class="visible-xs">
-    <div vi-unitvalue model="model.to" units="model.units" class="col-sm-6"></div>
-  </form>
-  <br>
-  <p class="text-center text-muted">{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</p>
-
+  <div class="navbar navbar-default row" style="padding: 10px 0px 10px 0px">
+      <div vi-unitvalue model="model.from" units="model.units" class="col-sm-6"></div>
+      <br class="visible-xs">
+      <div vi-unitvalue model="model.to" units="model.units" class="col-sm-6"></div>
+  </div>
+  <p data-toggle="modal" data-target="#howModal" class="text-center">Rechnet Oechsle, KMW, Brix, Dichte usw. in pot. Alkoholgehalt, ineinander und wieder zurück. <a href="#">Wie?</a></p>
+  
+  <!--<p class="text-center text-muted">{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</p>-->
+  
+  
+	
+	<!-- Modal -->
+  <div class="modal fade" id="howModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">So rechnet Vinolator</h4>
+        </div>
+        <div class="modal-body">
+          <div class="lead">
+            <div>
+        			<span>KMW</span><span class="conversion-arrow"> ↔ </span><span>Oe</span><span class="conversion-arrow"> ↔ </span><span>d</span><span class="conversion-arrow"> ↔ </span><span>Bé</span><span class="conversion-arrow"> ↔ </span><span>Bx</span><span class="conversion-arrow"> ↔ </span><span>g/l</span><span class="conversion-arrow"> ↔ </span><span>g/kg Zucker</span>
+        		</div>
+        		<div>
+        			&nbsp;&nbsp;&nbsp;&nbsp;↕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↕
+        		</div>
+        		<div>
+        			<span>vol%</span><span class="conversion-arrow"> ↔ </span><span>g/l Alkohol</span>
+        		</div>
+          </div>
+  				<p>
+  				Da einige Einheiten nicht direkt umgerechnet werden können, werden oft verschiedene Formeln bzw. Tabellen mit Erfahrungswerten verwendet, die zu verschiedenen Ergebnissen führen können. Für eine genaue und verlässliche Umrechnung verwendet Vinolator zwei bewährte Tabellen: 
+  				</p>
+  				<ol>
+  				<li>
+  				Die von der Internationalen Organisation für Rebe und Wein (<a href="http://news.reseau-concept.net/pls/news/p_entree?i_sid=&amp;i_type_edition_id=21214&amp;i_section_id=21219&amp;i_lang=33#21222" target="_blank">OIV Resolution OENO 21/2004</a>) veröffentlichten Umrechnungswerte für <em>Brix</em>, <em>Relative Dichte</em> und <em>g/l</em> sowie <em>g/kg Zucker</em> bzw. Saccharose.
+  				</li>
+  				<li>
+  				Die in der deutschen Weinverordnung (Anlage 8, zu §17) bzw. im österreichischen Weingesetz veröffentlichten Werte zur Umrechnung von <em>KMW</em>, <em>Oechsle</em> und <em>potentiellem Alkoholgehalt</em>.
+  				</li>
+  				</ol>
+  				<p>
+  				Die Umrechnung zwischen den beiden Tabellen erfolgt wiederum über eine einfache Formel zwischen Oechsle und Relative Dichte: <em>d = 1+(Oe/1000)</em>.
+  				</p>
+  				<p>
+  				Baumé wird über die Relative Dichte hergeleitet: <em>Bé = 145 - (145 / d).</em>
+  				Die Umrechnung von vol% Alkohol in g/l erfolgt über <em>g/l = vol% * 7,893</em>.
+  				</p>
+  				<p class="text-danger">
+  				<b>Achtung:</b> Trotz größter Sorgfalt wird für die Richtigkeit der Werte keine Haftung übernommen. Bitte beachten Sie, dass vor allem die
+  				Umrechnung in potentiellen Alkoholgehalt nur eine Annäherung darstellt (die in der Regel eher über dem tatsächlich erreichbaren Alkoholgehalt liegt).
+  				</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Verstanden</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   <!--<table id="pad">
     <tbody>
       <tr>
