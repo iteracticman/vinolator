@@ -23,14 +23,32 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
 
-  <!-- Add your site or application content here -->
-  <div class="container">
-    <div class="page-header">
-      <h1>Vinolator</h1>
-      <p class="lead">Gegen Umrechnungstabellen! Rechnet Oechsle, KMW, Brix, Dichte usw. in pot. Alkoholgehalt, ineinander und wieder zurück. Und bald noch mehr.</p>
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Vinolator</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Einheitenrechner</a></li>
+          <li><a href="#">iPhone App</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
     
-      <div ng-view=""></div>
+  <div class="container">
+    <h1 class="hidden-xs">Vinolator</h1>
+    <p class="lead">Der Einheitenrechner für Winzer und Kellermeister.</p>
+
+    <div ng-view=""></div>
   </div>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
