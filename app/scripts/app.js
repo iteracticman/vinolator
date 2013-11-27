@@ -10,12 +10,6 @@ mod.config(function ($routeProvider) {
       templateUrl: 'views/convert.html',
       controller: 'ConvertCtrl'
     })
-    .when('/info', {
-      templateUrl: 'views/info.html'
-    })
-    .when('/apps', {
-      templateUrl: 'views/apps.html'
-    })
     .otherwise({
       redirectTo: '/'
     });
