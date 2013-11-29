@@ -1,7 +1,7 @@
 'use strict';
 
 var mod = angular.module('vinolatorWebApp', [
-  'ngResource'
+  'ngResource', 'ngRoute'
 ]);
 
 mod.config(function ($routeProvider) {

@@ -1,17 +1,13 @@
 <div>
-  <h1 class="hidden-xs">Vinolator</h1>
+  <h3>Vinolator</h3>
   <p class="lead">Der Einheitenrechner für Winzer und Kellermeister.</p>
 
-  <div class="navbar navbar-default row" style="padding: 10px 0px 10px 0px">
+  <form novalidate="" class="navbar navbar-default row" style="padding: 10px 0px 10px 0px">
       <div vi-unitvalue="" model="model.from" units="model.units" class="col-sm-6"></div>
       <br class="visible-xs">
       <div vi-unitvalue="" model="model.to" units="model.units" class="col-sm-6"></div>
-  </div>
-  <p data-toggle="modal" data-target="#howModal" class="text-center">Rechnet Oechsle, KMW, Brix, Dichte usw. in pot. Alkoholgehalt, ineinander und wieder zurück. <a href="#">Wie?</a></p>
-  
-  <!--<p class="text-center text-muted">{{ model.from.value }} {{ model.from.unit.id }} = {{ model.to.value }} {{ model.to.unit.id }}</p>-->
-  
-  
+  </form>
+  <p data-toggle="modal" data-target="#howModal" class="text-center">Rechnet Oechsle, KMW, Brix, Dichte usw. in pot. Alkoholgehalt, ineinander und wieder zurück.<br><a href="#">Wie rechnet Vinolator?</a></p>
 	
 	<!-- Modal -->
   <div class="modal fade" id="howModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

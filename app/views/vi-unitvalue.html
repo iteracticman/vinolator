@@ -1,16 +1,19 @@
 <div class="input-group input-group-lg">
-  <input ng-model="model.value" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" placeholder="{{ model.unit.name }}" vi-unitinput data-toggle="tooltip" title="{{ unit.name }}">
+  <input ng-model="model.value" class="form-control" type="number" min="{{ model.unit.minValue }}" max="{{ model.unit.maxValue }}" step="{{ model.step }}" placeholder="{{ model.unit.name }}" vi-unitinput>
   <div class="input-group-btn">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 90px;">
       <span ng-bind="model.unit.id"></span>
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu pull-right">
+    <ul role="menu" class="dropdown-menu pull-right">
       <li ng-repeat="unit in units" class="{{ model.activeIfCurrent(unit) }}">
-        <a ng-click="model.unit = unit">
+        <a ng-if="unit.minValue !== undefined" ng-click="model.unit = unit">
           {{unit.id}}<br>
           <small class="{{ model.mutedIfNotCurrent(unit) }} ">{{unit.name}}</small>
         </a>
+        <div ng-if="unit.minValue == undefined" class="text-muted text-center">
+          <small><strong ng-bind="unit"></strong></small>
+        </div>
       </li>
     </ul>
   </div>

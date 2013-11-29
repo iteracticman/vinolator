@@ -32,12 +32,13 @@ app.directive('viUnitinput', function($log) {
         return undefined;
       });
       
-      ctrl.$formatters = [ function(modelValue) {
+      ctrl.$formatters.push(function(modelValue) {
+        modelValue = scope.model.value;
         if(angular.isNumber(modelValue)) {
           elm.parent().removeClass('has-error');
           return parseFloat(modelValue.toFixed(scope.model.unit.precision)).toString(); 
         }
-      }];
+      });
     }
   };
 });
@@ -101,12 +102,15 @@ app.factory('UnitModel', function($log) {
 });
 
 app.controller('ConvertCtrl', function($scope, unitSet, UnitModel) {
+  var unitSelection = [ 'Zucker / Mostgewicht' ].concat(unitSet.sugarUnits).concat([ 'Potentieller Alkoholgehalt ']).concat(unitSet.alcUnits);
   var model = {
     unitSet : unitSet,
-    units : unitSet.allUnits,
+    units : unitSelection,
     from : Object.create(UnitModel),
     to : Object.create(UnitModel)
   };
+  model.from.defaultUnit = unitSet.oechsle;
+  model.to.defaultUnit = unitSet.alc;
   
   $scope.model = model;
   
@@ -137,7 +141,7 @@ app.controller('ConvertCtrl', function($scope, unitSet, UnitModel) {
     var newUnit = previousSrcUnit;
     
     if(angular.isUndefined(newUnit)) {
-      newUnit = model.units[0];
+      newUnit = model.defaultUnit;
     }
     destUnitModel.unit = newUnit;
   }
@@ -153,6 +157,7 @@ app.controller('ConvertCtrl', function($scope, unitSet, UnitModel) {
     updateToValue();
   });
   
-  model.from.unit = model.units[0];
-  model.to.unit = model.units[1];
+  model.from.unit = model.from.defaultUnit;
+  model.to.unit = model.to.defaultUnit;
+  model.from.value = 87.6;
 });

@@ -73,12 +73,12 @@ describe('convert', function() {
     
     
     it('units should be prepopulated', inject(function() {
-      expect(model.from.unit).toBe(model.units[0]);
-      expect(model.from.value).toBeUndefined();
+      expect(model.from.unit).toBe(model.unitSet.oechsle);
+      expect(model.from.value).toBe(87.6);
       
-      expect(model.to.unit).toBe(model.units[1]);
+      expect(model.to.unit).toBe(model.unitSet.alc);
       
-      expect(model.to.value).toBeUndefined();
+      expect(model.to.value).toBeCloseTo(11.82);
     }));
     
     it('changing fromValue should change toValue', function() {
@@ -108,7 +108,7 @@ describe('convert', function() {
       
       var oldTo = model.to.value;
       
-      model.from.unit = model.units[2];
+      model.from.unit = model.units.d;
       $scope.$digest();
       
       expect(model.to.value).not.toBe(oldTo);

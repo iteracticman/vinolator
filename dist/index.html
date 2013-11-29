@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <link rel="stylesheet" href="styles/929eb3a1.main.css">
+  <link rel="stylesheet" href="styles/29ca25c2.main.css">
 </head>
 <body ng-app="vinolatorWebApp">
   <!--[if lt IE 7]>
@@ -26,40 +26,21 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
-
-  <nav class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Vinolator</a>
+  
+  <div id="wrap">
+    <div id="main" class="container">
+      <div ng-view=""></div>
+      <div id="apps" ng-include="'views/apps.html'"></div>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#convert">Einheitenrechner</a></li>
-        <li><a href="#apps">iPhone App</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#info">Impressum</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </nav>
-    
-  <div class="container" data-spy="scroll" data-target="#navbar-example">
-    <div ng-view=""></div>
-    <div id="apps" ng-include="'views/apps.html'"></div>
   </div>
   
-  <div class="page-header">
-  </div>
+  <footer>
   <p class="text-center text-muted">
 		<a href="mailto:petw@gmx.net?subject=Vinolator%20App">Kontakt</a> | <a href="http://twitter.com/vinolatorapp">Twitter</a>
 		<br>
 		&copy;2010-2014 Peter Weishapl
   </p>
+  </footer>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <!-- <script>
      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,8 +53,8 @@
   </script>-->
 
 
-  <script src="scripts/89a79a24.modules.js"></script>
+  <script src="scripts/44f85612.modules.js"></script>
 
-  <script src="scripts/523263bc.scripts.js"></script>
+  <script src="scripts/791b31e2.scripts.js"></script>
 </body>
 </html>

@@ -126,6 +126,7 @@ mod.service('WVOUnitSet', function(ArraySourceUnitSet, ArraySourceUnit) {
   base.kmw = new ArraySourceUnit({
     id : '°KMW',
     name : 'Klosterneuburger Mostwaage (Babo)', 
+    precision : 2,
     values : [8.5,8.7,8.9,9.1,9.3,9.5,9.7,9.9,10.1,10.3,10.5,10.7,10.9,11.1,11.3,11.5,11.7,11.9,12.1,12.3,12.5,12.7,12.9,13.1,13.3,13.5,13.7,13.9,14.1,14.3,14.5,14.7,14.9,15.0,15.2,15.4,15.6,15.8,16.0,16.2,16.4,16.6,16.8,17.0,17.2,17.3,17.5,17.7,17.9,18.1,18.3,18.5,18.7,18.9,19.0,19.2,19.4,19.6,19.8,20.0,20.2,20.4,20.5,20.7,20.9,21.1,21.3,21.5,21.6,21.8,22.0,22.2,22.4,22.6,22.7,22.9,23.1,23.3,23.5,23.6,23.8,24.0,24.2,24.4,24.5,24.7,24.9,25.1,25.3,25.4,25.6,25.8,26.0,26.1,26.3,26.5,26.7,26.8,27.0,27.2,27.4,27.5,27.7,27.9,28.1,28.2,28.4,28.6,28.8,28.9,29.1]
   });
   base.oechsle = new ArraySourceUnit({
@@ -136,6 +137,7 @@ mod.service('WVOUnitSet', function(ArraySourceUnitSet, ArraySourceUnit) {
   base.alc = new ArraySourceUnit({
     id : 'vol%',
     name : 'Alkohol',
+    precision : 2,
     values : [4.4,4.5,4.7,4.8,5.0,5.2,5.3,5.5,5.6,5.8,5.9,6.1,6.3,6.4,6.6,6.7,6.9,7.0,7.2,7.3,7.5,7.7,7.8,8.0,8.1,8.3,8.4,8.6,8.8,8.9,9.1,9.2,9.4,9.5,9.7,9.8,10.0,10.2,10.3,10.5,10.6,10.8,10.9,11.1,11.3,11.4,11.6,11.7,11.9,12.0,12.2,12.4,12.5,12.7,12.8,13.0,13.1,13.3,13.4,13.6,13.8,13.9,14.1,14.2,14.4,14.5,14.7,14.8,15.0,15.2,15.3,15.5,15.6,15.8,15.9,16.1,16.3,16.4,16.6,16.7,16.9,17.0,17.2,17.3,17.5,17.7,17.8,18.0,18.1,18.3,18.4,18.6,18.8,18.9,19.1,19.2,19.4,19.5,19.7,19.8,20.0,20.2,20.3,20.5,20.6,20.8,20.9,21.1,21.3,21.4,21.5]
   });
   
@@ -243,13 +245,17 @@ mod.service('AllUnitsSet', function(OIVWVOUnitSet, UnitSet, Unit) {
   
   base.baume = new Unit({
     id : '°Bé',
-    name : 'Baumé'
+    name : 'Baumé',
+    precision : 2
   })
   base.alcVol = new Unit({
-    id : 'g/l',
-    name : 'Alkohol/Wein'
+    id : 'g/L',
+    name : 'Alkohol / Wein',
+    precision : 2
   });
   base.allUnits = OIVWVOUnitSet.allUnits.concat( [ base.alcVol, base.baume ] );
+  base.sugarUnits = [ base.kmw, base.oechsle, base.d, base.brix, base.baume, base.sugarWeight, base.sugarVol ];
+  base.alcUnits = [ base.alc, base.alcVol ];
   
   base.convert = function(value, fromUnit, toUnit) {
     if(OIVWVOUnitSet.canConvert(fromUnit, toUnit)) {
