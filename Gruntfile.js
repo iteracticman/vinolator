@@ -22,6 +22,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee:dist']
       },
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less:dist']
+      },
       coffeeTest: {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
@@ -131,6 +135,20 @@ module.exports = function (grunt) {
         }]
       }
     },
+    less: {
+      options: {
+        paths: [ '<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less' ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '{,*/}*.less',
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
+      }
+    },
     // not used since Uglify task does concat,
     // but still available if needed
     /*concat: {
@@ -226,7 +244,6 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            //'bower_components/**/*',
             'images/{,*/}*.{gif,webp,mp4,ogv}',
             'styles/fonts/*'
           ]
@@ -249,14 +266,17 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'coffee:dist',
+        'less:dist',
         'copy:styles'
       ],
       test: [
         'coffee',
+        'less',
         'copy:styles'
       ],
       dist: [
         'coffee',
+        'less',
         'copy:styles',
         'imagemin',
         'svgmin',
@@ -345,9 +365,6 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
-  
-  grunt.registerTask('heroku:development', 'build');
-  grunt.registerTask('heroku:production', 'build');
 
   grunt.registerTask('default', [
     'jshint',

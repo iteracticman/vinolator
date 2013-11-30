@@ -1,3 +1,5 @@
+@import "bootstrap.less";
+
 html, body {
   height: 100%;
 }
@@ -11,8 +13,8 @@ html, body {
   padding-bottom:100px; /* this needs to be bigger than footer height*/
 }
 footer {
-  background-color: rgb(248, 248, 248);
-  border-top: 1px solid rgb(231, 231, 231);
+  background-color: @navbar-default-bg;
+  border-top: 1px solid @navbar-default-border;
   position: relative;
   margin-top: -60px; /* negative value of footer height */
   height: 60px;
@@ -20,6 +22,7 @@ footer {
   padding-top:10px;
   padding-bottom: 10px;
 }
+
 #iphone-screenshot-video {
   position: relative;
 	background-image: url('/images/vinolator_screenshot.png');
@@ -27,21 +30,24 @@ footer {
 	width: 258px;
 	text-align: center;
 	display: inline-block;
-}
-#iphone-screenshot-video video{
-  position: relative;
-  top: 96px;
-}
-
-.dropdown-menu li div {
-  padding: 4px;  
-  border-bottom: 1px solid rgb(231, 231, 231);
-  border-top: 1px solid rgb(231, 231, 231);
+	
+	video {
+    position: relative;
+    top: 96px;
+  }
 }
 
-.dropdown-menu li:first-child div {
-  padding-top: 0px;
-  border-top: 0px solid black;
+.dropdown-menu {
+  li div {
+    padding: 4px;  
+    border-bottom: 1px solid @navbar-default-border;
+    border-top: 1px solid @navbar-default-border;
+  }
+  
+  li:first-child div {
+    padding-top: 0px;
+    border-top: 0px solid black;
+  }
 }
 
 @media(min-width: 768px) {
@@ -55,6 +61,7 @@ footer {
     top: 130px;
   }
 }
+
 @media (max-width: 767px) {
   .xs-center-sm-left {
     text-align: center;
