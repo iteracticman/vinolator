@@ -7,9 +7,12 @@
     </button>
     <ul role="menu" class="dropdown-menu pull-right">
       <li ng-repeat="unit in units" class="{{ model.activeIfCurrent(unit) }}">
-        <a ng-if="unit.minValue !== undefined" ng-click="model.unit = unit">
-          {{unit.id}}<br>
-          <small class="{{ model.mutedIfNotCurrent(unit) }}">{{unit.name}}</small>
+        <a class="unit-selection" ng-if="unit.minValue !== undefined" ng-click="model.unit = unit">
+          <div class="unit">
+            {{unit.id}}<br>
+            <small class="{{ model.mutedIfNotCurrent(unit) }}">{{unit.name}}</small>
+          </div>
+          <div class="value">{{ model.convertToUnit(unit) | unitFormat:unit }}</div>
         </a>
         <div ng-if="unit.minValue == undefined" class="text-muted text-center">
           <small><strong ng-bind="unit"></strong></small>
