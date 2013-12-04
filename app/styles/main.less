@@ -37,8 +37,32 @@ footer {
   }
 }
 
+    
 .dropdown-menu {
-  li div {
+  .unit-selection {
+    padding-right: 8px;
+    display: table;
+    width: 100%;
+    
+    .unit {
+      display: table-cell;
+    }
+    .value {
+      display: table-cell;
+      text-align: right;
+      vertical-align: middle;
+      padding-left: 20px;
+      color: @brand-primary;
+    } 
+  }
+  
+  .active {
+    .value {
+      color: white;  
+    }
+  }
+  
+  li > div {
     padding: 4px;  
     border-bottom: 1px solid @navbar-default-border;
     border-top: 1px solid @navbar-default-border;

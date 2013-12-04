@@ -45,6 +45,9 @@ mod.service('FactorUnitSet', function(UnitSet) {
 mod.factory('Unit', function() {
   var base = {
     precision : 1,
+    formatValue : function(value) {
+      return parseFloat(value.toFixed(this.precision)).toString();
+    },
     minValue : 0,
     maxValue : Number.MAX_VALUE,
     valueIsValid : function(value) {

@@ -2,12 +2,21 @@
 
 var app = angular.module('vinolatorWebApp');
 
+app.filter('unitFormat', function() {
+  return function(input, unit) {
+    if(angular.isNumber(input)) {
+      return unit.formatValue(input);  
+    }
+    return null;
+  }
+});
+
 app.directive('viUnitvalue', function() {
   return {
     restrict: 'AE',
     scope: {
       model : '=',
-      units : '='
+      units : '=',
     },
     templateUrl: 'views/vi-unitvalue.html'
   }
@@ -36,7 +45,7 @@ app.directive('viUnitinput', function($log) {
         modelValue = scope.model.value;
         if(angular.isNumber(modelValue)) {
           elm.parent().removeClass('has-error');
-          return parseFloat(modelValue.toFixed(scope.model.unit.precision)).toString(); 
+          return scope.model.unit.formatValue(modelValue); 
         }
       });
     }
@@ -91,6 +100,9 @@ app.factory('UnitModel', function($log) {
       }
       return '';
     },
+    convertToUnit : function(toUnit) {
+      return this.unitSet.convert(this.value, this.unit, toUnit);
+    },
     get step() {
       return 1 / Math.pow(10, this.unit.precision);
     }
@@ -111,6 +123,7 @@ app.controller('ConvertCtrl', function($scope, unitSet, UnitModel) {
   };
   model.from.defaultUnit = unitSet.oechsle;
   model.to.defaultUnit = unitSet.alc;
+  model.from.unitSet = model.to.unitSet = unitSet;
   
   $scope.model = model;
   
